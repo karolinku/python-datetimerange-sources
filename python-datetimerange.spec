@@ -1,10 +1,10 @@
 %global pypi_name DateTimeRange
 %global module_name datetimerange
 
-Name:           python-%{pypi_name}
+Name:           python-%{module_name}
 Version:        1.2.0
 Release:        1%{?dist}
-Summary:        Python module python-datetimerange
+Summary:        Python module DateTimeRange
 
 License:        MIT
 URL:            https://github.com/thombashi/DateTimeRange
@@ -18,6 +18,7 @@ BuildRequires:  python3-typepy
 #test requirements
 BuildRequires:  python3-pytest
 BuildRequires:  python3-pytz
+
 
 %global _description %{expand:
 DateTimeRange is a Python library to handle a time range. e.g. check whether
@@ -34,8 +35,6 @@ Summary:        %{summary}
 
 %prep
 %autosetup -p1 -n %{pypi_name}-%{version}
-sed -i 's/\[datetime\]//g' requirements/requirements.txt
-
 %generate_buildrequires
 %pyproject_buildrequires
 
